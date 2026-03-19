@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>简易图书管理系统</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- 可选：引入Bootstrap简化样式 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">简易图书管理系统</h1>
+
+    <!-- 搜索区域 -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="按书名/作者搜索">
+      <button onclick="searchBooks()">搜索</button>
+    </div>
+
+    <!-- 添加图书表单 -->
+    <div class="form-box">
+      <h3>添加/编辑图书</h3>
+      <input type="hidden" id="bookId"> <!-- 存储编辑的图书ID -->
+      <div class="form-item">
+        <label>书名：</label>
+        <input type="text" id="bookName" placeholder="请输入书名">
+      </div>
+      <div class="form-item">
+        <label>作者：</label>
+        <input type="text" id="bookAuthor" placeholder="请输入作者">
+      </div>
+      <div class="form-item">
+        <label>类型：</label>
+        <select id="bookType">
+          <option value="小说">小说</option>
+          <option value="技术">技术</option>
+          <option value="科普">科普</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+      <div class="form-item">
+        <label>状态：</label>
+        <select id="bookStatus">
+          <option value="可借阅">可借阅</option>
+          <option value="已借出">已借出</option>
+        </select>
+      </div>
+      <button onclick="saveBook()">保存图书</button>
+      <button onclick="resetForm()">重置</button>
+    </div>
+
+    <!-- 图书列表 -->
+    <div class="list-box">
+      <h3>图书列表</h3>
+      <table id="bookTable" class="table table-striped">
+        <thead>
+          <tr>
+            <th>书名</th>
+            <th>作者</th>
+            <th>类型</th>
+            <th>状态</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="bookList"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <!-- 可选：引入Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
